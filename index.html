@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="实时竞拍三方接入评审指南：接口全景、业务链路、P0 阻塞项、对客确认清单与联调验收门槛。">
+  <title>实时竞拍三方接入评审指南</title>
+  <link rel="stylesheet" href="assets/docs.css?v=1.0">
+</head>
+<body data-document="document.md">
+  <a class="skip-link" href="#doc-content">跳到正文</a>
+  <div class="reading-progress" id="reading-progress" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="./" aria-label="返回首页">
+        <span class="brand-mark">IR</span>
+        <span class="brand-copy"><strong>Integration Review</strong><small>三方接入评审</small></span>
+      </a>
+      <span class="mobile-title">三方接入评审</span>
+      <nav class="document-nav" aria-label="页面目录">
+        <a href="#doc-content">指南</a>
+        <a href="#section-blockers">P0 阻塞</a>
+        <a href="#section-confirmation">确认清单</a>
+        <a href="#section-acceptance">验收门槛</a>
+      </nav>
+      <div class="top-actions">
+        <button class="copy-link" id="copy-link" type="button">复制链接</button>
+        <a class="source-link" href="document.md" target="_blank" rel="noopener">Markdown</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="doc-hero">
+    <div class="doc-hero-inner">
+      <div class="hero-copy">
+        <p class="doc-kicker">REQ-20261113 · 三方对接评审 · 脱敏版</p>
+        <h1 class="doc-title">实时竞拍<br><span>三方接入评审指南</span></h1>
+        <p class="hero-summary">把“能看懂的业务流程”推进到“能开发、能测试、能上线”的接口契约。当前结论不是继续补页面，而是先关闭漏单、幂等、金额、设备与售后状态机风险。</p>
+        <div class="doc-meta">
+          <span>V1.0</span><span>2026-11-13</span><span>对外评审版</span><span class="status-pill">未达联调准入</span>
+        </div>
+      </div>
+      <aside class="hero-verdict" aria-label="评审结论">
+        <span class="verdict-label">CURRENT VERDICT</span>
+        <strong>先确认契约，<br>再安排联调。</strong>
+        <p>业务主链已具备轮廓，接口治理仍存在关键缺口。</p>
+        <div class="verdict-rule"></div>
+        <span>21 个当前必接接口</span>
+        <span>12 个 P0 阻塞项</span>
+      </aside>
+    </div>
+  </section>
+
+  <section class="fact-band" aria-label="评审关键指标">
+    <div class="fact-grid">
+      <div class="fact"><p>接口与通知</p><strong>25</strong><span>含选接、弃用与待定项</span></div>
+      <div class="fact"><p>当前必接</p><strong>21</strong><span>双向接口，不只是拉取</span></div>
+      <div class="fact emphasis"><p>P0 阻塞</p><strong>12</strong><span>关闭后再进入联调</span></div>
+      <div class="fact"><p>P1 待确认</p><strong>13</strong><span>联调前或上线前关闭</span></div>
+    </div>
+  </section>
+
+  <section class="callout-band">
+    <div class="callout-inner">
+      <div class="callout-index">READ FIRST</div>
+      <div>
+        <h2>这不是接口说明书，而是一份联调准入判断。</h2>
+        <p>接口数量不是问题，契约完整度才是。当前最稀缺的不是流程图，而是消息唯一标识、失败补偿、金额口径、多设备模型与售后状态迁移规则。</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="doc-layout">
+    <aside class="outline" aria-label="本文目录">
+      <div class="outline-head">
+        <h2 class="outline-title">本文目录</h2>
+        <button class="outline-toggle" id="outline-toggle" type="button" aria-expanded="false">展开</button>
+      </div>
+      <nav class="outline-nav" id="outline-nav"></nav>
+    </aside>
+    <article class="doc-content" id="doc-content" aria-live="polite" aria-busy="true">
+      <p class="loading-state">正在加载评审指南...</p>
+    </article>
+  </main>
+
+  <footer class="doc-footer">
+    <div class="doc-footer-inner">
+      <span>REQ-20261113 · 实时竞拍三方接入评审 · V1.0</span>
+      <span>脱敏静态页 · 不连接真实接口、账号或生产数据</span>
+    </div>
+  </footer>
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="返回顶部" title="返回顶部">↑</button>
+
+  <script src="assets/marked.min.js"></script>
+  <script src="assets/doc-viewer.js?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+name: 发布实时竞拍三方接入评审指南
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出站点
+        uses: actions/checkout@v4
+      - name: 配置 Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+      - name: 上传静态站点
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - name: 发布 Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
