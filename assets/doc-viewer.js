@@ -63,6 +63,15 @@
     updateActiveSection();
   }
 
+  function markSectionActive(sectionId) {
+    outlineAnchors.forEach(anchor => {
+      anchor.classList.toggle('active', anchor.dataset.section === sectionId);
+    });
+    navAnchors.forEach(anchor => {
+      anchor.classList.toggle('active', anchor.getAttribute('href') === `#${sectionId}`);
+    });
+  }
+
   function updateActiveSection() {
     let current = outlineAnchors[0]?.dataset.section || '';
     const probe = window.innerHeight * 0.22;
@@ -71,15 +80,7 @@
       if (heading.getBoundingClientRect().top <= probe) current = heading.id;
     });
 
-    outlineAnchors.forEach(anchor => {
-      anchor.classList.toggle('active', anchor.dataset.section === current);
-    });
-    navAnchors.forEach(anchor => {
-      const isActive = current === 'section-blockers' && anchor.getAttribute('href') === '#section-blockers'
-        || current === 'section-confirmation' && anchor.getAttribute('href') === '#section-confirmation'
-        || current === 'section-acceptance' && anchor.getAttribute('href') === '#section-acceptance';
-      anchor.classList.toggle('active', Boolean(isActive));
-    });
+    markSectionActive(current);
   }
 
   function scrollToHash(hash, smooth) {
@@ -97,6 +98,8 @@
         event.preventDefault();
         history.pushState(null, '', href);
         scrollToHash(href, true);
+        markSectionActive(href.slice(1));
+        window.setTimeout(updateActiveSection, 850);
       });
     });
   }
